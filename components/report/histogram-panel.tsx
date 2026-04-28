@@ -9,7 +9,7 @@ const Plot = dynamic(() => import('react-plotly.js'), { ssr: false });
 export default function HistogramPanel({ distribution }: { distribution?: Distribution }) {
   if (!distribution) {
     return (
-      <div className="flex h-64 items-center justify-center text-sm text-[var(--text-tertiary)]">
+      <div className="flex h-80 items-center justify-center text-sm text-[var(--text-tertiary)]">
         No distribution data available
       </div>
     );
@@ -18,12 +18,12 @@ export default function HistogramPanel({ distribution }: { distribution?: Distri
   const trace = getHistogramTrace(distribution.bins, distribution.counts);
 
   return (
-    <div className="h-64">
+    <div className="h-80">
       <Plot
         data={[trace]}
         layout={{
           ...plotlyLayout,
-          height: 256,
+          height: 320,
           showlegend: false,
           xaxis: {
             ...plotlyLayout.xaxis,

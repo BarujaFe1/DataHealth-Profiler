@@ -75,11 +75,11 @@
 
   body {
     @apply bg-[var(--surface-base)] text-[var(--text-primary)] antialiased;
-    font-family: 'Geist', system-ui, -apple-system, sans-serif;
+    font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
   }
 
   code, pre {
-    font-family: 'Geist Mono', 'SF Mono', Consolas, monospace;
+    font-family: var(--font-geist-mono), 'SF Mono', Consolas, monospace;
   }
 }
 
