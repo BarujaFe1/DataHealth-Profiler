@@ -9,12 +9,21 @@ import { ColumnTable } from "@/components/ColumnTable";
 import { ColumnDetail } from "@/components/ColumnDetail";
 import { PreviewTable } from "@/components/PreviewTable";
 import { LoadingSkeleton } from "@/components/LoadingSkeleton";
-import { fetchDemos, getApiBase, profileDemo, profileUpload } from "@/lib/api";
+import {
+  fetchDemos,
+  getApiBase,
+  probeApiHealth,
+  profileDemo,
+  profileUpload,
+  type DemoSource,
+} from "@/lib/api";
 import type { DemoDataset, ProfileReport } from "@/lib/types";
 
 export function ProfilerApp() {
   const [demos, setDemos] = useState<DemoDataset[]>([]);
   const [demosLoading, setDemosLoading] = useState(true);
+  const [demoSource, setDemoSource] = useState<DemoSource>("static");
+  const [apiOnline, setApiOnline] = useState(false);
   const [report, setReport] = useState<ProfileReport | null>(null);
   const [selectedColumn, setSelectedColumn] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -23,12 +32,18 @@ export function ProfilerApp() {
   useEffect(() => {
     let active = true;
     setDemosLoading(true);
-    fetchDemos()
-      .then((items) => {
-        if (active) setDemos(items);
+    Promise.all([fetchDemos(), probeApiHealth()])
+      .then(([demoResult, online]) => {
+        if (!active) return;
+        setDemos(demoResult.demos);
+        setDemoSource(demoResult.source);
+        setApiOnline(online);
       })
       .catch(() => {
-        if (active) setDemos([]);
+        if (!active) return;
+        setDemos([]);
+        setDemoSource("static");
+        setApiOnline(false);
       })
       .finally(() => {
         if (active) setDemosLoading(false);
@@ -63,34 +78,60 @@ export function ProfilerApp() {
       <header className="topbar">
         <div>
           <p className="brand">DataHealth Profiler</p>
-          <p className="tagline">Open a CSV. See the risks before the analysis starts.</p>
+          <p className="tagline">
+            Introductory lab: open a CSV and see dataset risks before analysis starts.
+          </p>
         </div>
-        <p className="api-chip" title={getApiBase()}>
-          API {getApiBase().replace(/^https?:\/\//, "")}
-        </p>
+        <div className="status-chips">
+          <p className={`mode-chip ${demoSource === "api" ? "is-live" : "is-static"}`}>
+            {demoSource === "api" ? "Live API demos" : "Static demo pack"}
+          </p>
+          <p className="api-chip" title={getApiBase()}>
+            API {apiOnline ? "online" : "offline"} · {getApiBase().replace(/^https?:\/\//, "")}
+          </p>
+        </div>
       </header>
 
       <section className="hero-panel">
         <div className="hero-copy">
           <h1>Where is this dataset unhealthy?</h1>
           <p>
-            Upload a tabular CSV and get an explainable health score, column flags,
-            missingness, cardinality, and a first-pass profile — without opening a notebook.
+            Upload a tabular CSV (when the API is online) or use a seeded dirty demo to get an
+            explainable health score, column flags, missingness, and a first-pass profile.
           </p>
         </div>
-        <UploadZone disabled={isPending} onFile={(file) => runProfile(() => profileUpload(file))} />
+        <UploadZone
+          disabled={isPending || !apiOnline}
+          onFile={(file) => runProfile(() => profileUpload(file))}
+        />
       </section>
+
+      {!apiOnline ? (
+        <div className="info-banner" role="status">
+          <strong>Static lab mode.</strong>
+          <p>
+            The profiling API is offline, so uploads are disabled. Seeded demos still work from
+            precomputed reports — enough for a portfolio walkthrough without a backend process.
+          </p>
+        </div>
+      ) : null}
 
       <section className="demo-section" aria-labelledby="demo-heading">
         <div className="section-heading">
-          <h2 id="demo-heading">Or try a dirty demo dataset</h2>
+          <h2 id="demo-heading">Try a dirty demo dataset</h2>
           <p>Seed files include nulls, constants, duplicates, skew, and parse noise.</p>
         </div>
         <DemoPicker
           demos={demos}
           loading={demosLoading}
           disabled={isPending}
-          onSelect={(demoId) => runProfile(() => profileDemo(demoId))}
+          onSelect={(demoId) =>
+            runProfile(async () => {
+              const result = await profileDemo(demoId);
+              setDemoSource(result.source);
+              return result.report;
+            })
+          }
         />
       </section>
 
@@ -157,8 +198,8 @@ export function ProfilerApp() {
         <section className="empty-state">
           <h2>No profile yet</h2>
           <p>
-            Drop a CSV or pick a demo. You will get a health score, attention list, and
-            column-level diagnostics in one pass.
+            Pick a demo to start. You will get a health score, attention list, and column-level
+            diagnostics in one pass.
           </p>
         </section>
       ) : null}

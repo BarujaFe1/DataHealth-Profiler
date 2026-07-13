@@ -62,7 +62,7 @@ export function UploadZone({ disabled, onFile }: UploadZoneProps) {
       <p className="upload-hint">
         Max 10 MB · up to 50,000 rows · V1 supports CSV only
       </p>
-      <span className="upload-cta">Choose file</span>
+      <span className="upload-cta">{disabled ? "API required for upload" : "Choose file"}</span>
     </div>
   );
 }

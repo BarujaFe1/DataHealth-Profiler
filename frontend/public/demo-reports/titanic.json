@@ -1,0 +1,920 @@
+{
+  "summary": {
+    "filename": "titanic_dirty.csv",
+    "rows": 30,
+    "columns": 10,
+    "completeness": 0.9,
+    "duplicate_rows": 0,
+    "duplicate_ratio": 0.0,
+    "memory_mb": 0.01,
+    "health_score": 49,
+    "health_status": "critical",
+    "headline": "Dataset has critical quality risks — fix flagged columns before modeling."
+  },
+  "columns": [
+    {
+      "name": "cabin",
+      "inferred_type": "text",
+      "null_count": 23,
+      "null_ratio": 0.7667,
+      "unique_count": 7,
+      "unique_ratio": 0.2333,
+      "sample_values": [
+        null,
+        "C85",
+        null,
+        "C123",
+        null
+      ],
+      "numeric_stats": null,
+      "categorical_stats": {
+        "top_values": [
+          {
+            "value": "C85",
+            "count": 1
+          },
+          {
+            "value": "C123",
+            "count": 1
+          },
+          {
+            "value": "G6",
+            "count": 1
+          },
+          {
+            "value": "C103",
+            "count": 1
+          },
+          {
+            "value": "B28",
+            "count": 1
+          },
+          {
+            "value": "B19",
+            "count": 1
+          },
+          {
+            "value": "A26",
+            "count": 1
+          }
+        ]
+      },
+      "histogram": null,
+      "flags": [
+        {
+          "code": "high_missingness",
+          "column": "cabin",
+          "severity": "critical",
+          "message": "High missingness (77%)",
+          "detail": "Missing values may bias aggregates and models if not handled."
+        }
+      ]
+    },
+    {
+      "name": "constant_flag",
+      "inferred_type": "boolean",
+      "null_count": 0,
+      "null_ratio": 0.0,
+      "unique_count": 1,
+      "unique_ratio": 0.0333,
+      "sample_values": [
+        "YES",
+        "YES",
+        "YES",
+        "YES",
+        "YES"
+      ],
+      "numeric_stats": null,
+      "categorical_stats": {
+        "top_values": [
+          {
+            "value": "YES",
+            "count": 30
+          }
+        ]
+      },
+      "histogram": null,
+      "flags": [
+        {
+          "code": "constant_column",
+          "column": "constant_flag",
+          "severity": "warning",
+          "message": "Constant column",
+          "detail": "A single repeated value usually adds no analytical signal."
+        }
+      ]
+    },
+    {
+      "name": "fare",
+      "inferred_type": "numeric",
+      "null_count": 0,
+      "null_ratio": 0.0,
+      "unique_count": 26,
+      "unique_ratio": 0.8667,
+      "sample_values": [
+        7.25,
+        71.28,
+        7.92,
+        53.1,
+        8.05
+      ],
+      "numeric_stats": {
+        "count": 30,
+        "mean": 27.124666666666666,
+        "std": 29.735997543130406,
+        "min": 7.22,
+        "q25": 8.05,
+        "median": 17.35,
+        "q75": 30.7675,
+        "max": 146.52,
+        "skew": 2.630308009565964,
+        "zero_ratio": 0.0,
+        "outlier_ratio": 0.1
+      },
+      "categorical_stats": null,
+      "histogram": [
+        {
+          "bin_start": 7.22,
+          "bin_end": 18.828333333333333,
+          "count": 16
+        },
+        {
+          "bin_start": 18.828333333333333,
+          "bin_end": 30.436666666666667,
+          "count": 6
+        },
+        {
+          "bin_start": 30.436666666666667,
+          "bin_end": 42.045,
+          "count": 3
+        },
+        {
+          "bin_start": 42.045,
+          "bin_end": 53.653333333333336,
+          "count": 2
+        },
+        {
+          "bin_start": 53.653333333333336,
+          "bin_end": 65.26166666666667,
+          "count": 0
+        },
+        {
+          "bin_start": 65.26166666666667,
+          "bin_end": 76.87,
+          "count": 1
+        },
+        {
+          "bin_start": 76.87,
+          "bin_end": 88.47833333333334,
+          "count": 1
+        },
+        {
+          "bin_start": 88.47833333333334,
+          "bin_end": 100.08666666666667,
+          "count": 0
+        },
+        {
+          "bin_start": 100.08666666666667,
+          "bin_end": 111.69500000000001,
+          "count": 0
+        },
+        {
+          "bin_start": 111.69500000000001,
+          "bin_end": 123.30333333333334,
+          "count": 0
+        },
+        {
+          "bin_start": 123.30333333333334,
+          "bin_end": 134.9116666666667,
+          "count": 0
+        },
+        {
+          "bin_start": 134.9116666666667,
+          "bin_end": 146.52,
+          "count": 1
+        }
+      ],
+      "flags": [
+        {
+          "code": "high_skew",
+          "column": "fare",
+          "severity": "info",
+          "message": "Highly skewed distribution",
+          "detail": "Skewness ≈ 2.63. Consider transforms before modeling."
+        },
+        {
+          "code": "many_outliers",
+          "column": "fare",
+          "severity": "warning",
+          "message": "Many numeric outliers",
+          "detail": "About 10% of values fall outside a 1.5×IQR fence."
+        }
+      ]
+    },
+    {
+      "name": "name",
+      "inferred_type": "text",
+      "null_count": 0,
+      "null_ratio": 0.0,
+      "unique_count": 29,
+      "unique_ratio": 0.9667,
+      "sample_values": [
+        "John Smith",
+        "Mary Johnson",
+        "William Brown",
+        "Elizabeth Davis",
+        "James Wilson"
+      ],
+      "numeric_stats": null,
+      "categorical_stats": {
+        "top_values": [
+          {
+            "value": "John Smith",
+            "count": 2
+          },
+          {
+            "value": "Mary Johnson",
+            "count": 1
+          },
+          {
+            "value": "William Brown",
+            "count": 1
+          },
+          {
+            "value": "Elizabeth Davis",
+            "count": 1
+          },
+          {
+            "value": "James Wilson",
+            "count": 1
+          },
+          {
+            "value": "Patricia Moore",
+            "count": 1
+          },
+          {
+            "value": "Robert Taylor",
+            "count": 1
+          },
+          {
+            "value": "Linda Anderson",
+            "count": 1
+          },
+          {
+            "value": "Michael Thomas",
+            "count": 1
+          },
+          {
+            "value": "Barbara Jackson",
+            "count": 1
+          }
+        ]
+      },
+      "histogram": null,
+      "flags": [
+        {
+          "code": "high_cardinality",
+          "column": "name",
+          "severity": "warning",
+          "message": "Very high cardinality",
+          "detail": "Almost every row has a distinct value; encoding or grouping may be required."
+        }
+      ]
+    },
+    {
+      "name": "passenger_id",
+      "inferred_type": "identifier",
+      "null_count": 0,
+      "null_ratio": 0.0,
+      "unique_count": 30,
+      "unique_ratio": 1.0,
+      "sample_values": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "numeric_stats": null,
+      "categorical_stats": {
+        "top_values": [
+          {
+            "value": "1",
+            "count": 1
+          },
+          {
+            "value": "2",
+            "count": 1
+          },
+          {
+            "value": "3",
+            "count": 1
+          },
+          {
+            "value": "4",
+            "count": 1
+          },
+          {
+            "value": "5",
+            "count": 1
+          },
+          {
+            "value": "6",
+            "count": 1
+          },
+          {
+            "value": "7",
+            "count": 1
+          },
+          {
+            "value": "8",
+            "count": 1
+          },
+          {
+            "value": "9",
+            "count": 1
+          },
+          {
+            "value": "10",
+            "count": 1
+          }
+        ]
+      },
+      "histogram": null,
+      "flags": [
+        {
+          "code": "possible_identifier",
+          "column": "passenger_id",
+          "severity": "info",
+          "message": "Looks like an identifier",
+          "detail": "High uniqueness + naming hints suggest this should not be used as a model feature."
+        }
+      ]
+    },
+    {
+      "name": "ticket_code",
+      "inferred_type": "identifier",
+      "null_count": 0,
+      "null_ratio": 0.0,
+      "unique_count": 29,
+      "unique_ratio": 0.9667,
+      "sample_values": [
+        "A100",
+        "A101",
+        "A102",
+        "A103",
+        "A104"
+      ],
+      "numeric_stats": null,
+      "categorical_stats": {
+        "top_values": [
+          {
+            "value": "A100",
+            "count": 2
+          },
+          {
+            "value": "A101",
+            "count": 1
+          },
+          {
+            "value": "A102",
+            "count": 1
+          },
+          {
+            "value": "A103",
+            "count": 1
+          },
+          {
+            "value": "A104",
+            "count": 1
+          },
+          {
+            "value": "A105",
+            "count": 1
+          },
+          {
+            "value": "A106",
+            "count": 1
+          },
+          {
+            "value": "A107",
+            "count": 1
+          },
+          {
+            "value": "A108",
+            "count": 1
+          },
+          {
+            "value": "A109",
+            "count": 1
+          }
+        ]
+      },
+      "histogram": null,
+      "flags": [
+        {
+          "code": "possible_identifier",
+          "column": "ticket_code",
+          "severity": "info",
+          "message": "Looks like an identifier",
+          "detail": "High uniqueness + naming hints suggest this should not be used as a model feature."
+        }
+      ]
+    },
+    {
+      "name": "age",
+      "inferred_type": "numeric",
+      "null_count": 6,
+      "null_ratio": 0.2,
+      "unique_count": 17,
+      "unique_ratio": 0.5667,
+      "sample_values": [
+        22.0,
+        null,
+        26.0,
+        35.0,
+        35.0
+      ],
+      "numeric_stats": {
+        "count": 24,
+        "mean": 28.708333333333332,
+        "std": 13.782405818467527,
+        "min": 2.0,
+        "q25": 19.75,
+        "median": 26.5,
+        "q75": 38.25,
+        "max": 58.0,
+        "skew": 0.16664777612620368,
+        "zero_ratio": 0.0,
+        "outlier_ratio": 0.0
+      },
+      "categorical_stats": null,
+      "histogram": [
+        {
+          "bin_start": 2.0,
+          "bin_end": 6.666666666666667,
+          "count": 2
+        },
+        {
+          "bin_start": 6.666666666666667,
+          "bin_end": 11.333333333333334,
+          "count": 0
+        },
+        {
+          "bin_start": 11.333333333333334,
+          "bin_end": 16.0,
+          "count": 1
+        },
+        {
+          "bin_start": 16.0,
+          "bin_end": 20.666666666666668,
+          "count": 4
+        },
+        {
+          "bin_start": 20.666666666666668,
+          "bin_end": 25.333333333333336,
+          "count": 3
+        },
+        {
+          "bin_start": 25.333333333333336,
+          "bin_end": 30.0,
+          "count": 3
+        },
+        {
+          "bin_start": 30.0,
+          "bin_end": 34.66666666666667,
+          "count": 1
+        },
+        {
+          "bin_start": 34.66666666666667,
+          "bin_end": 39.333333333333336,
+          "count": 5
+        },
+        {
+          "bin_start": 39.333333333333336,
+          "bin_end": 44.0,
+          "count": 3
+        },
+        {
+          "bin_start": 44.0,
+          "bin_end": 48.66666666666667,
+          "count": 0
+        },
+        {
+          "bin_start": 48.66666666666667,
+          "bin_end": 53.333333333333336,
+          "count": 0
+        },
+        {
+          "bin_start": 53.333333333333336,
+          "bin_end": 58.0,
+          "count": 2
+        }
+      ],
+      "flags": []
+    },
+    {
+      "name": "notes",
+      "inferred_type": "categorical",
+      "null_count": 1,
+      "null_ratio": 0.0333,
+      "unique_count": 5,
+      "unique_ratio": 0.1667,
+      "sample_values": [
+        "ok",
+        "ok",
+        null,
+        "ok",
+        "missing cabin"
+      ],
+      "numeric_stats": null,
+      "categorical_stats": {
+        "top_values": [
+          {
+            "value": "ok",
+            "count": 25
+          },
+          {
+            "value": "missing cabin",
+            "count": 1
+          },
+          {
+            "value": "age unknown",
+            "count": 1
+          },
+          {
+            "value": "age blank",
+            "count": 1
+          },
+          {
+            "value": "dirty age",
+            "count": 1
+          }
+        ]
+      },
+      "histogram": null,
+      "flags": []
+    },
+    {
+      "name": "sex",
+      "inferred_type": "categorical",
+      "null_count": 0,
+      "null_ratio": 0.0,
+      "unique_count": 2,
+      "unique_ratio": 0.0667,
+      "sample_values": [
+        "male",
+        "female",
+        "male",
+        "female",
+        "male"
+      ],
+      "numeric_stats": null,
+      "categorical_stats": {
+        "top_values": [
+          {
+            "value": "male",
+            "count": 16
+          },
+          {
+            "value": "female",
+            "count": 14
+          }
+        ]
+      },
+      "histogram": null,
+      "flags": []
+    },
+    {
+      "name": "survived",
+      "inferred_type": "boolean",
+      "null_count": 0,
+      "null_ratio": 0.0,
+      "unique_count": 2,
+      "unique_ratio": 0.0667,
+      "sample_values": [
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      "numeric_stats": null,
+      "categorical_stats": {
+        "top_values": [
+          {
+            "value": "0",
+            "count": 15
+          },
+          {
+            "value": "1",
+            "count": 15
+          }
+        ]
+      },
+      "histogram": null,
+      "flags": []
+    }
+  ],
+  "flags": [
+    {
+      "code": "high_missingness",
+      "column": "cabin",
+      "severity": "critical",
+      "message": "High missingness (77%)",
+      "detail": "Missing values may bias aggregates and models if not handled."
+    },
+    {
+      "code": "constant_column",
+      "column": "constant_flag",
+      "severity": "warning",
+      "message": "Constant column",
+      "detail": "A single repeated value usually adds no analytical signal."
+    },
+    {
+      "code": "many_outliers",
+      "column": "fare",
+      "severity": "warning",
+      "message": "Many numeric outliers",
+      "detail": "About 10% of values fall outside a 1.5×IQR fence."
+    },
+    {
+      "code": "high_cardinality",
+      "column": "name",
+      "severity": "warning",
+      "message": "Very high cardinality",
+      "detail": "Almost every row has a distinct value; encoding or grouping may be required."
+    },
+    {
+      "code": "high_skew",
+      "column": "fare",
+      "severity": "info",
+      "message": "Highly skewed distribution",
+      "detail": "Skewness ≈ 2.63. Consider transforms before modeling."
+    },
+    {
+      "code": "possible_identifier",
+      "column": "passenger_id",
+      "severity": "info",
+      "message": "Looks like an identifier",
+      "detail": "High uniqueness + naming hints suggest this should not be used as a model feature."
+    },
+    {
+      "code": "possible_identifier",
+      "column": "ticket_code",
+      "severity": "info",
+      "message": "Looks like an identifier",
+      "detail": "High uniqueness + naming hints suggest this should not be used as a model feature."
+    }
+  ],
+  "preview": [
+    {
+      "passenger_id": 1,
+      "name": "John Smith",
+      "sex": "male",
+      "age": 22.0,
+      "fare": 7.25,
+      "survived": 0,
+      "cabin": null,
+      "constant_flag": "YES",
+      "ticket_code": "A100",
+      "notes": "ok"
+    },
+    {
+      "passenger_id": 2,
+      "name": "Mary Johnson",
+      "sex": "female",
+      "age": null,
+      "fare": 71.28,
+      "survived": 1,
+      "cabin": "C85",
+      "constant_flag": "YES",
+      "ticket_code": "A101",
+      "notes": "ok"
+    },
+    {
+      "passenger_id": 3,
+      "name": "William Brown",
+      "sex": "male",
+      "age": 26.0,
+      "fare": 7.92,
+      "survived": 1,
+      "cabin": null,
+      "constant_flag": "YES",
+      "ticket_code": "A102",
+      "notes": null
+    },
+    {
+      "passenger_id": 4,
+      "name": "Elizabeth Davis",
+      "sex": "female",
+      "age": 35.0,
+      "fare": 53.1,
+      "survived": 1,
+      "cabin": "C123",
+      "constant_flag": "YES",
+      "ticket_code": "A103",
+      "notes": "ok"
+    },
+    {
+      "passenger_id": 5,
+      "name": "James Wilson",
+      "sex": "male",
+      "age": 35.0,
+      "fare": 8.05,
+      "survived": 0,
+      "cabin": null,
+      "constant_flag": "YES",
+      "ticket_code": "A104",
+      "notes": "missing cabin"
+    },
+    {
+      "passenger_id": 6,
+      "name": "John Smith",
+      "sex": "male",
+      "age": 22.0,
+      "fare": 7.25,
+      "survived": 0,
+      "cabin": null,
+      "constant_flag": "YES",
+      "ticket_code": "A100",
+      "notes": "ok"
+    },
+    {
+      "passenger_id": 7,
+      "name": "Patricia Moore",
+      "sex": "female",
+      "age": 27.0,
+      "fare": 11.13,
+      "survived": 1,
+      "cabin": null,
+      "constant_flag": "YES",
+      "ticket_code": "A105",
+      "notes": "ok"
+    },
+    {
+      "passenger_id": 8,
+      "name": "Robert Taylor",
+      "sex": "male",
+      "age": null,
+      "fare": 8.46,
+      "survived": 0,
+      "cabin": null,
+      "constant_flag": "YES",
+      "ticket_code": "A106",
+      "notes": "age unknown"
+    },
+    {
+      "passenger_id": 9,
+      "name": "Linda Anderson",
+      "sex": "female",
+      "age": 14.0,
+      "fare": 30.07,
+      "survived": 1,
+      "cabin": null,
+      "constant_flag": "YES",
+      "ticket_code": "A107",
+      "notes": "ok"
+    },
+    {
+      "passenger_id": 10,
+      "name": "Michael Thomas",
+      "sex": "male",
+      "age": 4.0,
+      "fare": 16.7,
+      "survived": 1,
+      "cabin": "G6",
+      "constant_flag": "YES",
+      "ticket_code": "A108",
+      "notes": "ok"
+    },
+    {
+      "passenger_id": 11,
+      "name": "Barbara Jackson",
+      "sex": "female",
+      "age": 58.0,
+      "fare": 26.55,
+      "survived": 1,
+      "cabin": "C103",
+      "constant_flag": "YES",
+      "ticket_code": "A109",
+      "notes": "ok"
+    },
+    {
+      "passenger_id": 12,
+      "name": "William White",
+      "sex": "male",
+      "age": 20.0,
+      "fare": 8.05,
+      "survived": 0,
+      "cabin": null,
+      "constant_flag": "YES",
+      "ticket_code": "A110",
+      "notes": "ok"
+    },
+    {
+      "passenger_id": 13,
+      "name": "Elizabeth Harris",
+      "sex": "female",
+      "age": 39.0,
+      "fare": 31.28,
+      "survived": 0,
+      "cabin": null,
+      "constant_flag": "YES",
+      "ticket_code": "A111",
+      "notes": "ok"
+    },
+    {
+      "passenger_id": 14,
+      "name": "David Martin",
+      "sex": "male",
+      "age": 55.0,
+      "fare": 35.5,
+      "survived": 0,
+      "cabin": null,
+      "constant_flag": "YES",
+      "ticket_code": "A112",
+      "notes": "ok"
+    },
+    {
+      "passenger_id": 15,
+      "name": "Susan Thompson",
+      "sex": "female",
+      "age": null,
+      "fare": 7.85,
+      "survived": 1,
+      "cabin": null,
+      "constant_flag": "YES",
+      "ticket_code": "A113",
+      "notes": "age blank"
+    },
+    {
+      "passenger_id": 16,
+      "name": "Richard Garcia",
+      "sex": "male",
+      "age": 2.0,
+      "fare": 29.12,
+      "survived": 0,
+      "cabin": null,
+      "constant_flag": "YES",
+      "ticket_code": "A114",
+      "notes": "ok"
+    },
+    {
+      "passenger_id": 17,
+      "name": "Jessica Martinez",
+      "sex": "female",
+      "age": 31.0,
+      "fare": 18.0,
+      "survived": 1,
+      "cabin": null,
+      "constant_flag": "YES",
+      "ticket_code": "A115",
+      "notes": "ok"
+    },
+    {
+      "passenger_id": 18,
+      "name": "Joseph Robinson",
+      "sex": "male",
+      "age": 35.0,
+      "fare": 26.0,
+      "survived": 0,
+      "cabin": null,
+      "constant_flag": "YES",
+      "ticket_code": "A116",
+      "notes": "ok"
+    },
+    {
+      "passenger_id": 19,
+      "name": "Sarah Clark",
+      "sex": "female",
+      "age": 38.0,
+      "fare": 80.0,
+      "survived": 1,
+      "cabin": "B28",
+      "constant_flag": "YES",
+      "ticket_code": "A117",
+      "notes": "ok"
+    },
+    {
+      "passenger_id": 20,
+      "name": "Thomas Rodriguez",
+      "sex": "male",
+      "age": null,
+      "fare": 24.15,
+      "survived": 0,
+      "cabin": null,
+      "constant_flag": "YES",
+      "ticket_code": "A118",
+      "notes": "dirty age"
+    }
+  ],
+  "methodology": [
+    "Types are inferred from non-null values with lightweight heuristics (numeric, boolean, datetime, categorical, text).",
+    "Completeness is 1 - (total null cells / total cells).",
+    "Duplicate ratio counts fully identical rows.",
+    "Numeric outliers use a Tukey fence (1.5 × IQR) on non-null values.",
+    "Health score starts at 100 and subtracts weighted penalties from explainable quality flags.",
+    "Status bands: healthy ≥ 80, attention 50–79, critical < 50."
+  ]
+}

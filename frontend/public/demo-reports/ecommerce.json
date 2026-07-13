@@ -1,0 +1,1042 @@
+{
+  "summary": {
+    "filename": "ecommerce_dirty.csv",
+    "rows": 30,
+    "columns": 12,
+    "completeness": 0.8306,
+    "duplicate_rows": 2,
+    "duplicate_ratio": 0.0667,
+    "memory_mb": 0.015,
+    "health_score": 0,
+    "health_status": "critical",
+    "headline": "Dataset has critical quality risks — fix flagged columns before modeling."
+  },
+  "columns": [
+    {
+      "name": "created_at",
+      "inferred_type": "categorical",
+      "null_count": 27,
+      "null_ratio": 0.9,
+      "unique_count": 1,
+      "unique_ratio": 0.0333,
+      "sample_values": [
+        null,
+        null,
+        "SAVE10",
+        null,
+        null
+      ],
+      "numeric_stats": null,
+      "categorical_stats": {
+        "top_values": [
+          {
+            "value": "SAVE10",
+            "count": 3
+          }
+        ]
+      },
+      "histogram": null,
+      "flags": [
+        {
+          "code": "high_missingness",
+          "column": "created_at",
+          "severity": "critical",
+          "message": "High missingness (90%)",
+          "detail": "Missing values may bias aggregates and models if not handled."
+        },
+        {
+          "code": "constant_column",
+          "column": "created_at",
+          "severity": "warning",
+          "message": "Constant column",
+          "detail": "A single repeated value usually adds no analytical signal."
+        }
+      ]
+    },
+    {
+      "name": "promo_code",
+      "inferred_type": "categorical",
+      "null_count": 26,
+      "null_ratio": 0.8667,
+      "unique_count": 1,
+      "unique_ratio": 0.0333,
+      "sample_values": [
+        null,
+        null,
+        "legacy",
+        null,
+        null
+      ],
+      "numeric_stats": null,
+      "categorical_stats": {
+        "top_values": [
+          {
+            "value": "legacy",
+            "count": 4
+          }
+        ]
+      },
+      "histogram": null,
+      "flags": [
+        {
+          "code": "high_missingness",
+          "column": "promo_code",
+          "severity": "critical",
+          "message": "High missingness (87%)",
+          "detail": "Missing values may bias aggregates and models if not handled."
+        },
+        {
+          "code": "constant_column",
+          "column": "promo_code",
+          "severity": "warning",
+          "message": "Constant column",
+          "detail": "A single repeated value usually adds no analytical signal."
+        }
+      ]
+    },
+    {
+      "name": "source_system",
+      "inferred_type": "categorical",
+      "null_count": 4,
+      "null_ratio": 0.1333,
+      "unique_count": 1,
+      "unique_ratio": 0.0333,
+      "sample_values": [
+        "legacy",
+        "legacy",
+        null,
+        "legacy",
+        "legacy"
+      ],
+      "numeric_stats": null,
+      "categorical_stats": {
+        "top_values": [
+          {
+            "value": "legacy",
+            "count": 26
+          }
+        ]
+      },
+      "histogram": null,
+      "flags": [
+        {
+          "code": "constant_column",
+          "column": "source_system",
+          "severity": "warning",
+          "message": "Constant column",
+          "detail": "A single repeated value usually adds no analytical signal."
+        }
+      ]
+    },
+    {
+      "name": "quantity",
+      "inferred_type": "numeric",
+      "null_count": 2,
+      "null_ratio": 0.0667,
+      "unique_count": 24,
+      "unique_ratio": 0.8,
+      "sample_values": [
+        1299.99,
+        45.5,
+        null,
+        1299.99,
+        32.4
+      ],
+      "numeric_stats": {
+        "count": 28,
+        "mean": 628.6489285714285,
+        "std": 1076.9815925602554,
+        "min": 0.0,
+        "q25": 13.524999999999999,
+        "median": 50.25,
+        "q75": 999.2475,
+        "max": 4100.0,
+        "skew": 2.0168293483625024,
+        "zero_ratio": 0.10714285714285714,
+        "outlier_ratio": 0.10714285714285714
+      },
+      "categorical_stats": null,
+      "histogram": [
+        {
+          "bin_start": 0.0,
+          "bin_end": 341.6666666666667,
+          "count": 19
+        },
+        {
+          "bin_start": 341.6666666666667,
+          "bin_end": 683.3333333333334,
+          "count": 0
+        },
+        {
+          "bin_start": 683.3333333333334,
+          "bin_end": 1025.0,
+          "count": 2
+        },
+        {
+          "bin_start": 1025.0,
+          "bin_end": 1366.6666666666667,
+          "count": 3
+        },
+        {
+          "bin_start": 1366.6666666666667,
+          "bin_end": 1708.3333333333335,
+          "count": 1
+        },
+        {
+          "bin_start": 1708.3333333333335,
+          "bin_end": 2050.0,
+          "count": 0
+        },
+        {
+          "bin_start": 2050.0,
+          "bin_end": 2391.666666666667,
+          "count": 0
+        },
+        {
+          "bin_start": 2391.666666666667,
+          "bin_end": 2733.3333333333335,
+          "count": 1
+        },
+        {
+          "bin_start": 2733.3333333333335,
+          "bin_end": 3075.0,
+          "count": 0
+        },
+        {
+          "bin_start": 3075.0,
+          "bin_end": 3416.666666666667,
+          "count": 1
+        },
+        {
+          "bin_start": 3416.666666666667,
+          "bin_end": 3758.3333333333335,
+          "count": 0
+        },
+        {
+          "bin_start": 3758.3333333333335,
+          "bin_end": 4100.0,
+          "count": 1
+        }
+      ],
+      "flags": [
+        {
+          "code": "high_skew",
+          "column": "quantity",
+          "severity": "info",
+          "message": "Highly skewed distribution",
+          "detail": "Skewness ≈ 2.02. Consider transforms before modeling."
+        },
+        {
+          "code": "many_outliers",
+          "column": "quantity",
+          "severity": "warning",
+          "message": "Many numeric outliers",
+          "detail": "About 11% of values fall outside a 1.5×IQR fence."
+        }
+      ]
+    },
+    {
+      "name": "category",
+      "inferred_type": "numeric",
+      "null_count": 1,
+      "null_ratio": 0.0333,
+      "unique_count": 8,
+      "unique_ratio": 0.2667,
+      "sample_values": [
+        1.0,
+        2.0,
+        1.0,
+        1.0,
+        8.0
+      ],
+      "numeric_stats": {
+        "count": 29,
+        "mean": 2.3448275862068964,
+        "std": 2.5393455578296082,
+        "min": 1.0,
+        "q25": 1.0,
+        "median": 1.0,
+        "q75": 2.0,
+        "max": 12.0,
+        "skew": 2.6051250769657046,
+        "zero_ratio": 0.0,
+        "outlier_ratio": 0.1724137931034483
+      },
+      "categorical_stats": null,
+      "histogram": [
+        {
+          "bin_start": 1.0,
+          "bin_end": 2.375,
+          "count": 22
+        },
+        {
+          "bin_start": 2.375,
+          "bin_end": 3.75,
+          "count": 2
+        },
+        {
+          "bin_start": 3.75,
+          "bin_end": 5.125,
+          "count": 2
+        },
+        {
+          "bin_start": 5.125,
+          "bin_end": 6.5,
+          "count": 1
+        },
+        {
+          "bin_start": 6.5,
+          "bin_end": 7.875,
+          "count": 0
+        },
+        {
+          "bin_start": 7.875,
+          "bin_end": 9.25,
+          "count": 1
+        },
+        {
+          "bin_start": 9.25,
+          "bin_end": 10.625,
+          "count": 0
+        },
+        {
+          "bin_start": 10.625,
+          "bin_end": 12.0,
+          "count": 1
+        }
+      ],
+      "flags": [
+        {
+          "code": "high_skew",
+          "column": "category",
+          "severity": "info",
+          "message": "Highly skewed distribution",
+          "detail": "Skewness ≈ 2.61. Consider transforms before modeling."
+        },
+        {
+          "code": "many_outliers",
+          "column": "category",
+          "severity": "warning",
+          "message": "Many numeric outliers",
+          "detail": "About 17% of values fall outside a 1.5×IQR fence."
+        }
+      ]
+    },
+    {
+      "name": "order_id",
+      "inferred_type": "text",
+      "null_count": 0,
+      "null_ratio": 0.0,
+      "unique_count": 27,
+      "unique_ratio": 0.9,
+      "sample_values": [
+        "C-88",
+        "C-12",
+        "C-44",
+        "C-88",
+        "C-19"
+      ],
+      "numeric_stats": null,
+      "categorical_stats": {
+        "top_values": [
+          {
+            "value": "C-88",
+            "count": 3
+          },
+          {
+            "value": "C-12",
+            "count": 2
+          },
+          {
+            "value": "C-44",
+            "count": 1
+          },
+          {
+            "value": "C-19",
+            "count": 1
+          },
+          {
+            "value": "C-21",
+            "count": 1
+          },
+          {
+            "value": "C-7",
+            "count": 1
+          },
+          {
+            "value": "C-33",
+            "count": 1
+          },
+          {
+            "value": "C-41",
+            "count": 1
+          },
+          {
+            "value": "C-50",
+            "count": 1
+          },
+          {
+            "value": "C-61",
+            "count": 1
+          }
+        ]
+      },
+      "histogram": null,
+      "flags": [
+        {
+          "code": "high_cardinality",
+          "column": "order_id",
+          "severity": "warning",
+          "message": "Very high cardinality",
+          "detail": "Almost every row has a distinct value; encoding or grouping may be required."
+        }
+      ]
+    },
+    {
+      "name": "amount",
+      "inferred_type": "numeric",
+      "null_count": 1,
+      "null_ratio": 0.0333,
+      "unique_count": 5,
+      "unique_ratio": 0.1667,
+      "sample_values": [
+        0.0,
+        5.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "numeric_stats": {
+        "count": 29,
+        "mean": 5.689655172413793,
+        "std": 20.429501511777136,
+        "min": 0.0,
+        "q25": 0.0,
+        "median": 0.0,
+        "q75": 0.0,
+        "max": 100.0,
+        "skew": 4.144858237378952,
+        "zero_ratio": 0.8620689655172413,
+        "outlier_ratio": 0.0
+      },
+      "categorical_stats": null,
+      "histogram": [
+        {
+          "bin_start": 0.0,
+          "bin_end": 20.0,
+          "count": 27
+        },
+        {
+          "bin_start": 20.0,
+          "bin_end": 40.0,
+          "count": 0
+        },
+        {
+          "bin_start": 40.0,
+          "bin_end": 60.0,
+          "count": 1
+        },
+        {
+          "bin_start": 60.0,
+          "bin_end": 80.0,
+          "count": 0
+        },
+        {
+          "bin_start": 80.0,
+          "bin_end": 100.0,
+          "count": 1
+        }
+      ],
+      "flags": [
+        {
+          "code": "high_skew",
+          "column": "amount",
+          "severity": "info",
+          "message": "Highly skewed distribution",
+          "detail": "Skewness ≈ 4.14. Consider transforms before modeling."
+        },
+        {
+          "code": "zero_dominance",
+          "column": "amount",
+          "severity": "info",
+          "message": "Zeros dominate the column",
+          "detail": "86% of numeric values are zero."
+        }
+      ]
+    },
+    {
+      "name": "channel",
+      "inferred_type": "datetime",
+      "null_count": 0,
+      "null_ratio": 0.0,
+      "unique_count": 19,
+      "unique_ratio": 0.6333,
+      "sample_values": [
+        "2024-01-02",
+        "2024-01-03",
+        "2024-01-03",
+        "2024-01-02",
+        "2024-01-04"
+      ],
+      "numeric_stats": null,
+      "categorical_stats": null,
+      "histogram": null,
+      "flags": []
+    },
+    {
+      "name": "customer_id",
+      "inferred_type": "text",
+      "null_count": 0,
+      "null_ratio": 0.0,
+      "unique_count": 25,
+      "unique_ratio": 0.8333,
+      "sample_values": [
+        "SKU-91",
+        "SKU-14",
+        "SKU-77",
+        "SKU-91",
+        "SKU-3"
+      ],
+      "numeric_stats": null,
+      "categorical_stats": {
+        "top_values": [
+          {
+            "value": "SKU-91",
+            "count": 3
+          },
+          {
+            "value": "SKU-25",
+            "count": 3
+          },
+          {
+            "value": "SKU-14",
+            "count": 2
+          },
+          {
+            "value": "SKU-3",
+            "count": 1
+          },
+          {
+            "value": "SKU-77",
+            "count": 1
+          },
+          {
+            "value": "SKU-2",
+            "count": 1
+          },
+          {
+            "value": "SKU-18",
+            "count": 1
+          },
+          {
+            "value": "SKU-90",
+            "count": 1
+          },
+          {
+            "value": "SKU-55",
+            "count": 1
+          },
+          {
+            "value": "SKU-4",
+            "count": 1
+          }
+        ]
+      },
+      "histogram": null,
+      "flags": []
+    },
+    {
+      "name": "discount",
+      "inferred_type": "categorical",
+      "null_count": 0,
+      "null_ratio": 0.0,
+      "unique_count": 4,
+      "unique_ratio": 0.1333,
+      "sample_values": [
+        "paid",
+        "paid",
+        "pending",
+        "paid",
+        "paid"
+      ],
+      "numeric_stats": null,
+      "categorical_stats": {
+        "top_values": [
+          {
+            "value": "paid",
+            "count": 25
+          },
+          {
+            "value": "pending",
+            "count": 3
+          },
+          {
+            "value": "refunded",
+            "count": 1
+          },
+          {
+            "value": "canceled",
+            "count": 1
+          }
+        ]
+      },
+      "histogram": null,
+      "flags": []
+    },
+    {
+      "name": "product_sku",
+      "inferred_type": "categorical",
+      "null_count": 0,
+      "null_ratio": 0.0,
+      "unique_count": 4,
+      "unique_ratio": 0.1333,
+      "sample_values": [
+        "electronics",
+        "home",
+        "fashion",
+        "electronics",
+        "grocery"
+      ],
+      "numeric_stats": null,
+      "categorical_stats": {
+        "top_values": [
+          {
+            "value": "electronics",
+            "count": 9
+          },
+          {
+            "value": "home",
+            "count": 8
+          },
+          {
+            "value": "grocery",
+            "count": 7
+          },
+          {
+            "value": "fashion",
+            "count": 6
+          }
+        ]
+      },
+      "histogram": null,
+      "flags": []
+    },
+    {
+      "name": "status",
+      "inferred_type": "categorical",
+      "null_count": 0,
+      "null_ratio": 0.0,
+      "unique_count": 3,
+      "unique_ratio": 0.1,
+      "sample_values": [
+        "web",
+        "web",
+        "store",
+        "web",
+        "app"
+      ],
+      "numeric_stats": null,
+      "categorical_stats": {
+        "top_values": [
+          {
+            "value": "web",
+            "count": 18
+          },
+          {
+            "value": "store",
+            "count": 6
+          },
+          {
+            "value": "app",
+            "count": 6
+          }
+        ]
+      },
+      "histogram": null,
+      "flags": []
+    }
+  ],
+  "flags": [
+    {
+      "code": "high_missingness",
+      "column": "created_at",
+      "severity": "critical",
+      "message": "High missingness (90%)",
+      "detail": "Missing values may bias aggregates and models if not handled."
+    },
+    {
+      "code": "high_missingness",
+      "column": "promo_code",
+      "severity": "critical",
+      "message": "High missingness (87%)",
+      "detail": "Missing values may bias aggregates and models if not handled."
+    },
+    {
+      "code": "duplicate_rows",
+      "column": null,
+      "severity": "warning",
+      "message": "2 duplicate rows (6.7%)",
+      "detail": "Duplicate rows can inflate counts and leak information into train/test splits."
+    },
+    {
+      "code": "many_outliers",
+      "column": "category",
+      "severity": "warning",
+      "message": "Many numeric outliers",
+      "detail": "About 17% of values fall outside a 1.5×IQR fence."
+    },
+    {
+      "code": "constant_column",
+      "column": "created_at",
+      "severity": "warning",
+      "message": "Constant column",
+      "detail": "A single repeated value usually adds no analytical signal."
+    },
+    {
+      "code": "high_cardinality",
+      "column": "order_id",
+      "severity": "warning",
+      "message": "Very high cardinality",
+      "detail": "Almost every row has a distinct value; encoding or grouping may be required."
+    },
+    {
+      "code": "constant_column",
+      "column": "promo_code",
+      "severity": "warning",
+      "message": "Constant column",
+      "detail": "A single repeated value usually adds no analytical signal."
+    },
+    {
+      "code": "many_outliers",
+      "column": "quantity",
+      "severity": "warning",
+      "message": "Many numeric outliers",
+      "detail": "About 11% of values fall outside a 1.5×IQR fence."
+    },
+    {
+      "code": "constant_column",
+      "column": "source_system",
+      "severity": "warning",
+      "message": "Constant column",
+      "detail": "A single repeated value usually adds no analytical signal."
+    },
+    {
+      "code": "high_skew",
+      "column": "amount",
+      "severity": "info",
+      "message": "Highly skewed distribution",
+      "detail": "Skewness ≈ 4.14. Consider transforms before modeling."
+    },
+    {
+      "code": "zero_dominance",
+      "column": "amount",
+      "severity": "info",
+      "message": "Zeros dominate the column",
+      "detail": "86% of numeric values are zero."
+    },
+    {
+      "code": "high_skew",
+      "column": "category",
+      "severity": "info",
+      "message": "Highly skewed distribution",
+      "detail": "Skewness ≈ 2.61. Consider transforms before modeling."
+    },
+    {
+      "code": "high_skew",
+      "column": "quantity",
+      "severity": "info",
+      "message": "Highly skewed distribution",
+      "detail": "Skewness ≈ 2.02. Consider transforms before modeling."
+    }
+  ],
+  "preview": [
+    {
+      "order_id": "C-88",
+      "customer_id": "SKU-91",
+      "product_sku": "electronics",
+      "category": 1.0,
+      "quantity": 1299.99,
+      "amount": 0.0,
+      "discount": "paid",
+      "status": "web",
+      "channel": "2024-01-02",
+      "created_at": null,
+      "promo_code": null,
+      "source_system": "legacy"
+    },
+    {
+      "order_id": "C-12",
+      "customer_id": "SKU-14",
+      "product_sku": "home",
+      "category": 2.0,
+      "quantity": 45.5,
+      "amount": 5.0,
+      "discount": "paid",
+      "status": "web",
+      "channel": "2024-01-03",
+      "created_at": null,
+      "promo_code": null,
+      "source_system": "legacy"
+    },
+    {
+      "order_id": "C-44",
+      "customer_id": "SKU-77",
+      "product_sku": "fashion",
+      "category": 1.0,
+      "quantity": null,
+      "amount": 0.0,
+      "discount": "pending",
+      "status": "store",
+      "channel": "2024-01-03",
+      "created_at": "SAVE10",
+      "promo_code": "legacy",
+      "source_system": null
+    },
+    {
+      "order_id": "C-88",
+      "customer_id": "SKU-91",
+      "product_sku": "electronics",
+      "category": 1.0,
+      "quantity": 1299.99,
+      "amount": 0.0,
+      "discount": "paid",
+      "status": "web",
+      "channel": "2024-01-02",
+      "created_at": null,
+      "promo_code": null,
+      "source_system": "legacy"
+    },
+    {
+      "order_id": "C-19",
+      "customer_id": "SKU-3",
+      "product_sku": "grocery",
+      "category": 8.0,
+      "quantity": 32.4,
+      "amount": 0.0,
+      "discount": "paid",
+      "status": "app",
+      "channel": "2024-01-04",
+      "created_at": null,
+      "promo_code": null,
+      "source_system": "legacy"
+    },
+    {
+      "order_id": "C-21",
+      "customer_id": "SKU-55",
+      "product_sku": "electronics",
+      "category": 1.0,
+      "quantity": 899.0,
+      "amount": 50.0,
+      "discount": "refunded",
+      "status": "web",
+      "channel": "2024-01-05",
+      "created_at": null,
+      "promo_code": null,
+      "source_system": "legacy"
+    },
+    {
+      "order_id": "C-7",
+      "customer_id": "SKU-2",
+      "product_sku": "fashion",
+      "category": 3.0,
+      "quantity": 120.0,
+      "amount": null,
+      "discount": "paid",
+      "status": "web",
+      "channel": "2024-01-05",
+      "created_at": null,
+      "promo_code": "legacy",
+      "source_system": null
+    },
+    {
+      "order_id": "C-33",
+      "customer_id": "SKU-18",
+      "product_sku": "home",
+      "category": 1.0,
+      "quantity": 15.0,
+      "amount": 0.0,
+      "discount": "paid",
+      "status": "store",
+      "channel": "2024-01-06",
+      "created_at": null,
+      "promo_code": null,
+      "source_system": "legacy"
+    },
+    {
+      "order_id": "C-41",
+      "customer_id": "SKU-90",
+      "product_sku": "electronics",
+      "category": 1.0,
+      "quantity": 2499.0,
+      "amount": 0.0,
+      "discount": "paid",
+      "status": "web",
+      "channel": "2024-01-07",
+      "created_at": null,
+      "promo_code": null,
+      "source_system": "legacy"
+    },
+    {
+      "order_id": "C-12",
+      "customer_id": "SKU-14",
+      "product_sku": "home",
+      "category": 1.0,
+      "quantity": 22.0,
+      "amount": 0.0,
+      "discount": "canceled",
+      "status": "app",
+      "channel": "2024-01-07",
+      "created_at": null,
+      "promo_code": null,
+      "source_system": "legacy"
+    },
+    {
+      "order_id": "C-50",
+      "customer_id": "SKU-4",
+      "product_sku": "grocery",
+      "category": 12.0,
+      "quantity": 18.6,
+      "amount": 0.0,
+      "discount": "paid",
+      "status": "web",
+      "channel": "2024-01-08",
+      "created_at": null,
+      "promo_code": null,
+      "source_system": "legacy"
+    },
+    {
+      "order_id": "C-61",
+      "customer_id": "SKU-66",
+      "product_sku": "fashion",
+      "category": 2.0,
+      "quantity": null,
+      "amount": 10.0,
+      "discount": "pending",
+      "status": "web",
+      "channel": "2024-01-08",
+      "created_at": "SAVE10",
+      "promo_code": "legacy",
+      "source_system": null
+    },
+    {
+      "order_id": "C-9",
+      "customer_id": "SKU-1",
+      "product_sku": "grocery",
+      "category": 1.0,
+      "quantity": 3.5,
+      "amount": 0.0,
+      "discount": "paid",
+      "status": "store",
+      "channel": "2024-01-09",
+      "created_at": null,
+      "promo_code": null,
+      "source_system": "legacy"
+    },
+    {
+      "order_id": "C-77",
+      "customer_id": "SKU-88",
+      "product_sku": "electronics",
+      "category": 1.0,
+      "quantity": 1599.5,
+      "amount": 0.0,
+      "discount": "paid",
+      "status": "web",
+      "channel": "2024-01-10",
+      "created_at": null,
+      "promo_code": null,
+      "source_system": "legacy"
+    },
+    {
+      "order_id": "C-3",
+      "customer_id": "SKU-20",
+      "product_sku": "home",
+      "category": 4.0,
+      "quantity": 80.0,
+      "amount": 0.0,
+      "discount": "paid",
+      "status": "app",
+      "channel": "2024-01-10",
+      "created_at": null,
+      "promo_code": null,
+      "source_system": "legacy"
+    },
+    {
+      "order_id": "C-88",
+      "customer_id": "SKU-91",
+      "product_sku": "electronics",
+      "category": 1.0,
+      "quantity": 1299.99,
+      "amount": 0.0,
+      "discount": "paid",
+      "status": "web",
+      "channel": "2024-01-02",
+      "created_at": null,
+      "promo_code": null,
+      "source_system": "legacy"
+    },
+    {
+      "order_id": "C-14",
+      "customer_id": "SKU-5",
+      "product_sku": "grocery",
+      "category": 2.0,
+      "quantity": 9.9,
+      "amount": 0.0,
+      "discount": "paid",
+      "status": "web",
+      "channel": "2024-01-11",
+      "created_at": null,
+      "promo_code": null,
+      "source_system": "legacy"
+    },
+    {
+      "order_id": "C-22",
+      "customer_id": "SKU-70",
+      "product_sku": "fashion",
+      "category": 1.0,
+      "quantity": 60.0,
+      "amount": 0.0,
+      "discount": "paid",
+      "status": "store",
+      "channel": "2024-01-12",
+      "created_at": null,
+      "promo_code": null,
+      "source_system": "legacy"
+    },
+    {
+      "order_id": "C-29",
+      "customer_id": "SKU-99",
+      "product_sku": "electronics",
+      "category": 1.0,
+      "quantity": 3200.0,
+      "amount": 100.0,
+      "discount": "paid",
+      "status": "web",
+      "channel": "2024-01-13",
+      "created_at": null,
+      "promo_code": null,
+      "source_system": "legacy"
+    },
+    {
+      "order_id": "C-35",
+      "customer_id": "SKU-11",
+      "product_sku": "home",
+      "category": null,
+      "quantity": 40.0,
+      "amount": 0.0,
+      "discount": "paid",
+      "status": "app",
+      "channel": "2024-01-13",
+      "created_at": null,
+      "promo_code": null,
+      "source_system": "legacy"
+    }
+  ],
+  "methodology": [
+    "Types are inferred from non-null values with lightweight heuristics (numeric, boolean, datetime, categorical, text).",
+    "Completeness is 1 - (total null cells / total cells).",
+    "Duplicate ratio counts fully identical rows.",
+    "Numeric outliers use a Tukey fence (1.5 × IQR) on non-null values.",
+    "Health score starts at 100 and subtracts weighted penalties from explainable quality flags.",
+    "Status bands: healthy ≥ 80, attention 50–79, critical < 50."
+  ]
+}

@@ -109,7 +109,15 @@ input {
   max-width: 34rem;
 }
 
-.api-chip {
+.status-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  justify-content: flex-end;
+}
+
+.api-chip,
+.mode-chip {
   margin: 0;
   padding: 0.45rem 0.75rem;
   border: 1px solid var(--line);
@@ -118,6 +126,35 @@ input {
   color: var(--muted);
   font-size: 0.85rem;
   font-family: var(--font-mono), ui-monospace, monospace;
+}
+
+.mode-chip.is-live {
+  color: var(--healthy);
+  border-color: rgba(21, 128, 61, 0.28);
+  background: rgba(21, 128, 61, 0.08);
+}
+
+.mode-chip.is-static {
+  color: var(--warn);
+  border-color: rgba(180, 83, 9, 0.28);
+  background: rgba(180, 83, 9, 0.08);
+}
+
+.info-banner {
+  margin: 0 0 1.25rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid rgba(14, 116, 144, 0.28);
+  border-radius: var(--radius);
+  background: rgba(224, 242, 254, 0.85);
+}
+
+.info-banner strong {
+  color: var(--info);
+}
+
+.info-banner p {
+  margin: 0.35rem 0 0;
+  color: var(--muted);
 }
 
 .hero-panel {

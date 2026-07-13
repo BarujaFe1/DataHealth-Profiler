@@ -1,0 +1,26 @@
+[
+  {
+    "id": "titanic",
+    "name": "Titanic (dirty)",
+    "description": "Passenger survival data with missing ages, mixed types, and duplicate rows.",
+    "filename": "titanic_dirty.csv",
+    "rows": 30,
+    "columns": 10
+  },
+  {
+    "id": "ecommerce",
+    "name": "Ecommerce orders (dirty)",
+    "description": "Orders with nulls, a constant column, high-cardinality IDs, and skewed amounts.",
+    "filename": "ecommerce_dirty.csv",
+    "rows": 30,
+    "columns": 12
+  },
+  {
+    "id": "payroll",
+    "name": "Payroll (dirty)",
+    "description": "Payroll extract with empty fields, zero-heavy bonuses, and parse inconsistencies.",
+    "filename": "payroll_dirty.csv",
+    "rows": 30,
+    "columns": 11
+  }
+]

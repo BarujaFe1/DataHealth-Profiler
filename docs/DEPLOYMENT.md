@@ -1,5 +1,11 @@
 # Deployment
 
+## Public demo (current)
+
+- **UI:** https://datahealth-profiler.vercel.app
+- **Mode:** static demo pack (uploads need a running FastAPI backend)
+- Seeded demos (Titanic / Ecommerce / Payroll) work without the API
+
 ## Local
 
 Terminal A — backend:
