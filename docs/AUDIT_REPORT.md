@@ -105,7 +105,7 @@ The README itself is strong as product narrative. The gap is execution: recruite
 - [x] Essential tests exist
 - [x] UX reviewed for demo flow
 - [x] `docs/HANDOFF.md` written
-- [ ] Commit + push on portfolio branch
+- [x] Commit + push on portfolio branch
 
 ## Post-pass score
 
