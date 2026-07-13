@@ -1,0 +1,31 @@
+passenger_id,name,sex,age,fare,survived,cabin,constant_flag,ticket_code,notes
+1,John Smith,male,22,7.25,0,,YES,A100,ok
+2,Mary Johnson,female,,71.28,1,C85,YES,A101,ok
+3,William Brown,male,26,7.92,1,,YES,A102,
+4,Elizabeth Davis,female,35,53.1,1,C123,YES,A103,ok
+5,James Wilson,male,35,8.05,0,,YES,A104,missing cabin
+6,John Smith,male,22,7.25,0,,YES,A100,ok
+7,Patricia Moore,female,27,11.13,1,,YES,A105,ok
+8,Robert Taylor,male,,8.46,0,,YES,A106,age unknown
+9,Linda Anderson,female,14,30.07,1,,YES,A107,ok
+10,Michael Thomas,male,4,16.7,1,G6,YES,A108,ok
+11,Barbara Jackson,female,58,26.55,1,C103,YES,A109,ok
+12,William White,male,20,8.05,0,,YES,A110,ok
+13,Elizabeth Harris,female,39,31.28,0,,YES,A111,ok
+14,David Martin,male,55,35.5,0,,YES,A112,ok
+15,Susan Thompson,female,,7.85,1,,YES,A113,age blank
+16,Richard Garcia,male,2,29.12,0,,YES,A114,ok
+17,Jessica Martinez,female,31,18.0,1,,YES,A115,ok
+18,Joseph Robinson,male,35,26.0,0,,YES,A116,ok
+19,Sarah Clark,female,38,80.0,1,B28,YES,A117,ok
+20,Thomas Rodriguez,male,n/a,24.15,0,,YES,A118,dirty age
+21,Karen Lewis,female,18,9.84,1,,YES,A119,ok
+22,Charles Lee,male,40,27.72,0,,YES,A120,ok
+23,Nancy Walker,female,,146.52,1,B19,YES,A121,ok
+24,Daniel Hall,male,19,8.05,0,,YES,A122,ok
+25,Betty Allen,female,40,31.0,0,,YES,A123,ok
+26,Matthew Young,male,,7.22,1,,YES,A124,ok
+27,Margaret Hernandez,female,19,7.88,1,,YES,A125,ok
+28,Anthony King,male,26,8.05,0,,YES,A126,ok
+29,Sandra Wright,female,22,7.75,1,,YES,A127,ok
+30,Mark Lopez,male,42,52.0,0,A26,YES,A128,ok
